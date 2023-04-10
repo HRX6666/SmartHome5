@@ -13,6 +13,7 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 
+import com.example.smarthome.Database.AddHomes;
 import com.example.smarthome.Database.AddModel;
 import com.example.smarthome.Page_Samrt.Condition;
 import com.example.smarthome.Page_Samrt.More;
@@ -54,9 +55,9 @@ public class AddHome extends AppCompatActivity {
                     Toast.makeText(AddHome.this,"请输入房间名称",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                AddModel addModel=new AddModel();
-                addModel.setModel(name_hm);
-                addModel.save();
+                AddHomes addHomes=new AddHomes();
+                addHomes.setHome(name_hm);
+                addHomes.save();
                 finish();
 
 

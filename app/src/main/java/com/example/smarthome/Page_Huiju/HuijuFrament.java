@@ -16,13 +16,11 @@ import androidx.fragment.app.Fragment;
 import com.example.smarthome.Activity.BottomSmartHome;
 import com.example.smarthome.Activity.FirstActivity;
 import com.example.smarthome.Adapter.base.CommonAdapter;
-import com.example.smarthome.Database.AddDevice;
 import com.example.smarthome.MQTT.ClientMQTT;
 import com.example.smarthome.Page_Home.FindDevices;
 import com.example.smarthome.R;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
-import org.litepal.LitePal;
 import org.litepal.tablemanager.Connector;
 
 
@@ -74,7 +72,7 @@ public class HuijuFrament extends Fragment {
     GridLayoutManager gridLayoutManager;
     private CircleWelComeView circleView;
     RecyclerView huiju,mListHeader;
-    ExtendHeadAdapter extendHeadAdapter;
+    ExtendHeadAdapter addadapter;
     AddHomeAdapter addHomeAdapter;
     ObjectAnimator objectAnimator;
     View sun_anim;
@@ -119,7 +117,7 @@ private List<Integer> list = new ArrayList<>();
         });
         huiju_recyclerView();
         huiju_recyclerView();
-        adddevice();
+
         initData();
     }
 
@@ -145,13 +143,6 @@ private List<Integer> list = new ArrayList<>();
 
 
   }
-    private void adddevice() {
-        mListHeader.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
-        List<AddDevice> all = LitePal.findAll(AddDevice.class);
-        extendHeadAdapter= new ExtendHeadAdapter(all);
-        mListHeader.setAdapter(extendHeadAdapter);
-
-    }
 
     private void huiju_recyclerView() {
         huiju=(RecyclerView)getActivity().findViewById(R.id.add_view);

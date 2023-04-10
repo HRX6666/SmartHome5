@@ -155,4 +155,5 @@ public class DividerGridItemDecoration extends RecyclerView.ItemDecoration {
         outRect.set(2, 2, lineWidth, lineWidth);
 //        }
     }
+    
 }

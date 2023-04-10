@@ -1,16 +1,21 @@
 package com.example.smarthome.Page_Samrt;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -28,6 +33,7 @@ import com.example.smarthome.View.StepSeekBar;
 import com.example.smarthome.View.SwapTb.SortViewPagerAdapter;
 import com.example.smarthome.View.SwapTb.SpringView;
 import com.example.smarthome.View.SwapTb.ViewPagerIndicator;
+import com.github.iielse.switchbutton.SwitchView;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
 
@@ -39,7 +45,7 @@ public class AdjustTheLights extends AppCompatActivity {
     Toolbar lights_tb;
     private    ClientMQTT clientMQTT;
     private Button open_light;
-    private Button shut_light;
+    private Button shut_light,xxx;
     private Spinner spinner_model;
     private Spinner spinner_home;
     private String target_short_address;
@@ -50,7 +56,7 @@ public class AdjustTheLights extends AppCompatActivity {
     private List<Fragment> mList;
     private List<String> mDatas;
     private int itemCount = 4;
-
+    SwitchView open;
     SpringView springView;
 
 
@@ -76,8 +82,23 @@ public class AdjustTheLights extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adjust_the_lights);
         viewPager = (ViewPager) findViewById(R.id.vp);
+        view1=LayoutInflater.from(this).inflate(R.layout.fragment_lights,null);
+        view2=LayoutInflater.from(this).inflate(R.layout.fragment_lights,null);
+        view3=LayoutInflater.from(this).inflate(R.layout.fragment_lights,null);
+        view4=LayoutInflater.from(this).inflate(R.layout.fragment_lights,null);
+        xxx=view1.findViewById(R.id.xxx);
+         xxx.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              Intent intent=new Intent(AdjustTheLights.this,AdjustTheMusic.class);
+              startActivity(intent);
+          }
+      });
         indicator = (ViewPagerIndicator) findViewById(R.id.indicator);
         mList = new ArrayList<Fragment>();
+//
+
+
         for (int i = 0; i < itemCount; i++) {
             Fragment fragment = new MeFragment();
             mList.add(fragment);

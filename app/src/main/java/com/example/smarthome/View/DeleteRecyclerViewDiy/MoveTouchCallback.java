@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.smarthome.Adapter.RecyclerAdapter;
 import com.example.smarthome.Helper.AddSmartHelper;
 
+import java.util.Collections;
 import java.util.List;
 
 //自定义滑动
@@ -37,7 +38,7 @@ public class MoveTouchCallback extends ItemTouchHelper.Callback {
     }
 
     @Override
-    public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
+    public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {//判断RecyclerView布局数据
         if (recyclerView.getLayoutManager() instanceof GridLayoutManager) {
             final int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
             final int swipeFlags = 0;
@@ -45,7 +46,7 @@ public class MoveTouchCallback extends ItemTouchHelper.Callback {
         } else {
             final int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
             //final int swipeFlags = ItemTouchHelper.START | ItemTouchHelper.END;
-            final int swipeFlags = 0;
+            final int swipeFlags = 0;//0则不显示数据
             return makeMovementFlags(dragFlags, swipeFlags);
         }
     }
@@ -54,6 +55,20 @@ public class MoveTouchCallback extends ItemTouchHelper.Callback {
     public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
         int fromPosition = viewHolder.getAdapterPosition();//得到拖动ViewHolder的position
         int toPosition = target.getAdapterPosition();//得到目标ViewHolder的position
+//        if (toPosition == lists.size() - 1 || lists.size() - 1 == fromPosition) {
+//            return true;
+//        }
+//        if (fromPosition < toPosition) {
+//            for (int i = fromPosition; i < toPosition; i++) {
+//                Collections.swap(images, i, i + 1);
+//                Collections.swap(originImages, i, i + 1);
+//            }
+//        } else {
+//            for (int i = fromPosition; i > toPosition; i--) {
+//                Collections.swap(images, i, i - 1);
+//                Collections.swap(originImages, i, i - 1);
+//            }
+//        }
         itemTouchAdapter.onMove(fromPosition, toPosition);
         return true;
     }
@@ -75,6 +90,14 @@ public class MoveTouchCallback extends ItemTouchHelper.Callback {
         } else {
             super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
         }
+
+
+
+
+
+
+
+
     }
 
     @Override

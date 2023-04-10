@@ -181,27 +181,27 @@ public class SmartFragment extends Fragment {
 
                 itemTouchHelper.startDrag(vh);
                 VibratorUtils.Vibrate(getActivity(), 70);   //震动70ms
-                final MyAlertInputDialog myAlertInputDialog1 = new MyAlertInputDialog(getActivity());
-                myAlertInputDialog1.builder();
-                myAlertInputDialog1.setTitle("是真的要删除该设备吗");
-                myAlertInputDialog1.setPositiveButton("对！！！", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        recyclerAdapter.del(vh.getPosition());
-                        myAlertInputDialog1.dismiss();
-                    }
-
-
-                });
-                myAlertInputDialog1.setNegativeButton("拒绝", new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(getContext(), "好吧", Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-                myAlertInputDialog1.show();
+//                final MyAlertInputDialog myAlertInputDialog1 = new MyAlertInputDialog(getActivity());
+//                myAlertInputDialog1.builder();
+//                myAlertInputDialog1.setTitle("是真的要删除该设备吗");
+//                myAlertInputDialog1.setPositiveButton("对！！！", new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        recyclerAdapter.del(vh.getPosition());
+//                        myAlertInputDialog1.dismiss();
+//                    }
+//
+//
+//                });
+//                myAlertInputDialog1.setNegativeButton("拒绝", new View.OnClickListener() {
+//
+//                    @Override
+//                    public void onClick(View v) {
+//                        Toast.makeText(getContext(), "好吧", Toast.LENGTH_SHORT).show();
+//
+//                    }
+//                });
+//                myAlertInputDialog1.show();
 
 
 
