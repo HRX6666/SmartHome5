@@ -11,6 +11,9 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.accessibility.AccessibilityNodeInfo;
+import android.widget.AbsSeekBar;
+import android.widget.SeekBar;
 
 
 import androidx.annotation.Nullable;
@@ -22,7 +25,7 @@ import com.example.smarthome.R;
  * Author:created  By Walt-zhong at 2021/4/28 12:06
  * e-Mail:2511255880@qq.com
  */
-public class ArcSeekBar extends View {
+public class ArcSeekBar extends androidx.appcompat.widget.AppCompatSeekBar  {
     private static final String TAG = "ArcSeekBar";
     private Drawable mIndicator;
     private Drawable mResetIcon;
@@ -55,7 +58,23 @@ public class ArcSeekBar extends View {
     private int mPadding = 30;
     private float mRadius = 500;
     private float rad = 80;
+//    public interface OnArcSeekBarChangeListener{
+//        void onProgressChanged(ArcSeekBar seekBar,int progress,boolean fromUser);
+//        void onStartTrackingTouch(ArcSeekBar seekBar);
+//        void onStopTrackingTouch(ArcSeekBar seekBar);
+//    }
+//    private OnArcSeekBarChangeListener onArcSeekBarChangeListener;
 
+
+    @Override
+    public CharSequence getAccessibilityClassName() {
+        return super.getAccessibilityClassName();
+    }
+
+    @Override
+    public void setOnSeekBarChangeListener(OnSeekBarChangeListener l) {
+        super.setOnSeekBarChangeListener(l);
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public ArcSeekBar(Context context) {
@@ -72,6 +91,7 @@ public class ArcSeekBar extends View {
         super(context, attrs, defStyleAttr);
         initParam(context, attrs);
     }
+
 
     public void init(String[] valueArray){
         int length = valueArray.length;
@@ -279,6 +299,33 @@ public class ArcSeekBar extends View {
         index = Math.round(((sweepAngle - START_ANGLE) / step));
         return index;
     }
+//  void onPrgressRefresh(float scale,boolean fromUser,int progress){
+//       if(onArcSeekBarChangeListener!=null){
+//           onArcSeekBarChangeListener.onProgressChanged(this,progress,fromUser);
+//       }
+//  }
+//  public void set0nSeekBarChangeListener(OnArcSeekBarChangeListener l){
+//        onArcSeekBarChangeListener =l;
+//  }
+//  void onStartTrackingTouch(){
+//        super.onStartTemporaryDetach();
+//        if(onArcSeekBarChangeListener!=null){
+//            onArcSeekBarChangeListener.onStartTrackingTouch(this);
+//        }
+//  }
+//    void onStopTrackingTouch(){
+////        super.onStopTrackingTouch();
+//        if ( onArcSeekBarChangeListener != null) {
+//          onArcSeekBarChangeListener.onStopTrackingTouch(this);
+//        }
+//    }
+//    @Override
+//    public CharSequence getAccessibilityClassName() {
+//        return AbsSeekBar.class.getName();
+//    }
 
 
 }
+
+
+

@@ -4,7 +4,7 @@
     <color name="purple_100">#F0E9F9</color>
     <color name="purple_150">#E8DAF9</color>
     <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
+    <color name="purple_700">#44FFFFFF</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
@@ -29,6 +29,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#EAE5B3</color>
+    <color name="bule1">#F3FDFF</color>
     <!--AirBoradView-->
     <color name="tempTextColor">#c2c2c2</color>
     <color name="outCircleColor">#9CFCFFED</color>

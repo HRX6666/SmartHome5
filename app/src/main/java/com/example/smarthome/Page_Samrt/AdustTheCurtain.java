@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import com.example.smarthome.Database.Device;
 import com.example.smarthome.Database.Room;
 import com.example.smarthome.MQTT.ClientMQTT;
 import com.example.smarthome.R;
+import com.example.smarthome.View.ArcSeekBar;
 
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.litepal.LitePal;
@@ -35,6 +37,7 @@ public class AdustTheCurtain extends AppCompatActivity {
     private CardView bt_closeCurtain;
     private int home_choose;
     private String s_home_choose;
+    ArcSeekBar seekBar;
     //下拉框进入默认是全屋，进入界面时应该根服务器同步数据，设置当前设备状态是怎么样的，那个seekbar也一样，要根据实际情况来变
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,7 @@ public class AdustTheCurtain extends AppCompatActivity {
         List<Device> devicelist= LitePal.where("flag = ? and source_command = ?","1","0x03").find(Device.class);
         List<Map<String,String>> deviceList=new ArrayList<>();
         Map<String,String> map=new HashMap<>();
+
 //        for(Device device:devicelist){
 //            Room room=device.getRoom();
 //            int a=room.getCategory();

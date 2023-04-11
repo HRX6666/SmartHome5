@@ -64,7 +64,6 @@ public class AdjustTheLights extends AppCompatActivity {
     View view2;
     View view3;
     View view4;
-
     int currentPosition = 0;
     int endPosition;
     int beginPosition;
@@ -102,6 +101,7 @@ public class AdjustTheLights extends AppCompatActivity {
         for (int i = 0; i < itemCount; i++) {
             Fragment fragment = new MeFragment();
             mList.add(fragment);
+
         }
 
         mDatas = new ArrayList<>();

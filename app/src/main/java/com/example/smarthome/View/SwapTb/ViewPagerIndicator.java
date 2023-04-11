@@ -68,11 +68,12 @@ public class ViewPagerIndicator extends LinearLayout {
 
     private void init() {
         LogUtil.m();
-        this.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_swpt));
+        this.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_card));
         paint = new Paint();
         paint.setStyle(Paint.Style.FILL);
-        paint.setColor(getResources().getColor(R.color.white));
+        paint.setColor(getResources().getColor(R.color.darkhui));
         paint.setAntiAlias(true);
+        paint.setTextSize(15);
     }
 
     @Override
@@ -128,10 +129,11 @@ public class ViewPagerIndicator extends LinearLayout {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        //LogUtil.m();
+        LogUtil.m();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             //drawRoundRect需要的最低API是21
-            canvas.drawRoundRect(mLeft + mPadding, mTop + mPadding, mLeft + mWidth - mPadding, mTop + mHeight - mPadding, radiusX, radiusY, paint);
+
+            canvas.drawRoundRect(mLeft + 52, mTop + 8, mLeft + mWidth - 52, mTop + mHeight - 8, 100, 100, paint);
         } else {
             canvas.drawRoundRect(new RectF(mLeft + mPadding, mTop + mPadding, mLeft + mWidth - mPadding, mTop + mHeight - mPadding), radiusX, radiusX, paint);
             //canvas.drawRect(mLeft + mPadding, mTop + mPadding, mLeft + mWidth - mPadding, mTop + mHeight - mPadding, paint);
@@ -142,7 +144,7 @@ public class ViewPagerIndicator extends LinearLayout {
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
-        //ogUtil.m();
+//        ogUtil.m();
         super.dispatchDraw(canvas);
     }
 
@@ -159,10 +161,10 @@ public class ViewPagerIndicator extends LinearLayout {
                     if (isAutoSelect && currentPosition == 0) {
                         //滑动手松开时，让最左边（即第一个）item滑动到左边缘位置
                         if (positionOffset > rebounceOffset / 2) {
-                            mLeft = (position + (positionOffset - rebounceOffset / 2) * 2) * mWidth;
+                            mLeft = (position + (positionOffset - rebounceOffset / 4) * 2) * mWidth;
                         } else if (positionOffset > rebounceOffset / 3 && positionOffset < rebounceOffset / 2) {
                             //让最左边（即第一个）item 向右回弹一部分距离
-                            mLeft = (position + (rebounceOffset / 2) - positionOffset) * mWidth * 6 / 12;
+                            mLeft = (position + (rebounceOffset / 4) - positionOffset) * mWidth * 6 / 12;
                         } else {
                             //让最左边（即最后一个）item 向左回弹到边缘位置
                             mLeft = (position + positionOffset) * mWidth * 6 / 12;
