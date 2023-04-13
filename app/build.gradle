@@ -66,6 +66,8 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
     implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
     implementation 'com.github.HanHuoBin:BaseDialog:1.2.0'
+    implementation'com.github.zyl409214686:CustomRangeSeekBar:v1.0.3'
+    implementation 'com.github.jenly1314:arcseekbar:1.0.3'
 
 
 }

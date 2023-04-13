@@ -30,6 +30,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#EAE5B3</color>
     <color name="bule1">#F3FDFF</color>
+    <color name="bule3">#9BD5F9</color>
     <!--AirBoradView-->
     <color name="tempTextColor">#c2c2c2</color>
     <color name="outCircleColor">#9CFCFFED</color>

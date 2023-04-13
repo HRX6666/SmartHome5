@@ -25,7 +25,7 @@ import com.example.smarthome.R;
  * Author:created  By Walt-zhong at 2021/4/28 12:06
  * e-Mail:2511255880@qq.com
  */
-public class ArcSeekBar extends androidx.appcompat.widget.AppCompatSeekBar  {
+public class ArcSeekBar extends  View {
     private static final String TAG = "ArcSeekBar";
     private Drawable mIndicator;
     private Drawable mResetIcon;
@@ -47,6 +47,10 @@ public class ArcSeekBar extends androidx.appcompat.widget.AppCompatSeekBar  {
     private final int ANGLE_180 = 180;
     private final int INT_2 = 2;
     private final int INT_3 = 3;
+    private int mClickIndex = -1;
+    private int mClickDownLastX = -1;
+    private int mClickDownLastY = -1;
+
 
     private final float ANGLE_90_DIV_START_ANGLE = (90 - START_ANGLE);
 
@@ -58,23 +62,14 @@ public class ArcSeekBar extends androidx.appcompat.widget.AppCompatSeekBar  {
     private int mPadding = 30;
     private float mRadius = 500;
     private float rad = 80;
-//    public interface OnArcSeekBarChangeListener{
-//        void onProgressChanged(ArcSeekBar seekBar,int progress,boolean fromUser);
-//        void onStartTrackingTouch(ArcSeekBar seekBar);
-//        void onStopTrackingTouch(ArcSeekBar seekBar);
-//    }
-//    private OnArcSeekBarChangeListener onArcSeekBarChangeListener;
-
-
-    @Override
-    public CharSequence getAccessibilityClassName() {
-        return super.getAccessibilityClassName();
+    public interface OnArcSeekBarChangeListener{
+        void onProgressChanged(ArcSeekBar seekBar,int progress,boolean fromUser);
+        void onStartTrackingTouch(ArcSeekBar seekBar);
+        void onStopTrackingTouch(ArcSeekBar seekBar);
     }
+    private OnArcSeekBarChangeListener onArcSeekBarChangeListener;
 
-    @Override
-    public void setOnSeekBarChangeListener(OnSeekBarChangeListener l) {
-        super.setOnSeekBarChangeListener(l);
-    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public ArcSeekBar(Context context) {
@@ -216,17 +211,23 @@ public class ArcSeekBar extends androidx.appcompat.widget.AppCompatSeekBar  {
 
     }
 
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if(getParent()!=null){
+            //如果有父控件且不为空,则请求获得触摸事件
+            getParent().requestDisallowInterceptTouchEvent(true);
+        }
         switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
+            case MotionEvent.ACTION_DOWN://手指按下后的处理
                 startX = event.getX();
                 startY = event.getY();
                 if (event.getX() > (END_ANGLE - mStepN)) {
                     return true;
                 }
+
                 break;
-            case MotionEvent.ACTION_MOVE:
+            case MotionEvent.ACTION_MOVE://手指移动的处理
                 float distance = event.getX() - startX;
                 sweepAngle = (float) (lastAngle + ((distance * ANGLE_180) / (Math.PI * mRadius)));
                 Log.d(TAG,"distanch: " + distance + "sweepAngle: " + sweepAngle);
@@ -241,7 +242,7 @@ public class ArcSeekBar extends androidx.appcompat.widget.AppCompatSeekBar  {
                 android.util.Log.d(TAG, "zhongxj: index====>: " + index);
                 invalidate();
                 break;
-            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_UP://手指抬起的处理
 
                 float cx1 = getWidth() >> 1;
                 float cy1 = (float) (mRadius * Math.cos(Math.toRadians(ANGLE_90_DIV_START_ANGLE)) +
@@ -299,30 +300,30 @@ public class ArcSeekBar extends androidx.appcompat.widget.AppCompatSeekBar  {
         index = Math.round(((sweepAngle - START_ANGLE) / step));
         return index;
     }
-//  void onPrgressRefresh(float scale,boolean fromUser,int progress){
-//       if(onArcSeekBarChangeListener!=null){
-//           onArcSeekBarChangeListener.onProgressChanged(this,progress,fromUser);
-//       }
-//  }
-//  public void set0nSeekBarChangeListener(OnArcSeekBarChangeListener l){
-//        onArcSeekBarChangeListener =l;
-//  }
-//  void onStartTrackingTouch(){
-//        super.onStartTemporaryDetach();
-//        if(onArcSeekBarChangeListener!=null){
-//            onArcSeekBarChangeListener.onStartTrackingTouch(this);
-//        }
-//  }
-//    void onStopTrackingTouch(){
-////        super.onStopTrackingTouch();
-//        if ( onArcSeekBarChangeListener != null) {
-//          onArcSeekBarChangeListener.onStopTrackingTouch(this);
-//        }
-//    }
-//    @Override
-//    public CharSequence getAccessibilityClassName() {
-//        return AbsSeekBar.class.getName();
-//    }
+  void onPrgressRefresh(float scale,boolean fromUser,int progress){
+       if(onArcSeekBarChangeListener!=null){
+           onArcSeekBarChangeListener.onProgressChanged(this,progress,fromUser);
+       }
+  }
+  public void set0nSeekBarChangeListener(OnArcSeekBarChangeListener l){
+        onArcSeekBarChangeListener =l;
+  }
+  void onStartTrackingTouch(){
+        super.onStartTemporaryDetach();
+        if(onArcSeekBarChangeListener!=null){
+            onArcSeekBarChangeListener.onStartTrackingTouch(this);
+        }
+  }
+    void onStopTrackingTouch(){
+//        super.onStopTrackingTouch();
+        if ( onArcSeekBarChangeListener != null) {
+          onArcSeekBarChangeListener.onStopTrackingTouch(this);
+        }
+    }
+    @Override
+    public CharSequence getAccessibilityClassName() {
+        return AbsSeekBar.class.getName();
+    }
 
 
 }
