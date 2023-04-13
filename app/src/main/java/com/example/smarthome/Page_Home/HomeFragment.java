@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.smarthome.Activity.Test;
 import com.example.smarthome.R;
 
 public class HomeFragment extends Fragment {
@@ -69,7 +70,7 @@ public class HomeFragment extends Fragment {
         home_wifi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1=new Intent(getActivity(), Wifi.class);
+                Intent intent1=new Intent(getActivity(), Test.class);
                 startActivity(intent1);
             }
         });

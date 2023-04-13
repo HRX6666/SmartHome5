@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.Test">
+    tools:context=".Activity.Test"
+    android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.king.view.arcseekbar.ArcSeekBar
+        android:layout_width="match_parent"
+        android:layout_height="417dp"
+        android:layout_marginTop="100dp"
+        app:arcNormalColor="#E4A7BEFF"
+        app:arcProgressColor="#77CBFF"
+        app:arcShowLabel="true"
+        app:arcShowTick="true"
+        app:arcStartAngle="185"
+        app:arcStrokeCap="ROUND"
+        app:arcStrokeWidth="@dimen/dp_20"
+        app:arcSweepAngle="170"
+        app:arcThumbColor="#F6DBF9FF"
+        app:arcThumbRadius="4dp"
+        app:arcEnabledDrag="true"
+        app:arcDuration="3000"/>
+
+
+</RelativeLayout>
