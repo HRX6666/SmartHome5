@@ -16,24 +16,16 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Paint.FontMetrics;
 import android.graphics.Paint.Style;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.MeasureSpec;
-import android.widget.AbsSeekBar;
-import android.widget.ProgressBar;
-import android.widget.SeekBar;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import com.zyl.customrangeseekbar.R.mipmap;
 import com.zyl.customrangeseekbar.R.styleable;
 
-public class CustomRangeSeekBar extends AbsSeekBar {
+public class CustomRangeSeekBar extends View {
     private final Paint mPaint = new Paint();
     private Bitmap mThumbImage;
     private Bitmap mProgressBarBg;
@@ -65,8 +57,6 @@ public class CustomRangeSeekBar extends AbsSeekBar {
     public CustomRangeSeekBar(Context context) {
         super(context);
     }
-
-
 
     public CustomRangeSeekBar(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -173,16 +163,6 @@ public class CustomRangeSeekBar extends AbsSeekBar {
         return status;
     }
 
-
-    public CustomRangeSeekBar(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    @Override
-    public CharSequence getAccessibilityClassName() {
-        return super.getAccessibilityClassName();
-    }
-
     public boolean onTouchEvent(MotionEvent event) {
         if (!this.mIsEnable) {
             return true;
@@ -262,7 +242,6 @@ public class CustomRangeSeekBar extends AbsSeekBar {
                     if (this.getParent() != null) {
                         this.getParent().requestDisallowInterceptTouchEvent(true);
                     }
-
             }
 
             return true;
@@ -297,7 +276,7 @@ public class CustomRangeSeekBar extends AbsSeekBar {
         this.drawThumbMaxText(this.percentToScreen(this.mPercentSelectedMaxValue), this.getSelectedAbsoluteMaxValue(), canvas);
     }
 
-    public Parcelable onSaveInstanceState() {
+    protected Parcelable onSaveInstanceState() {
         Bundle bundle = new Bundle();
         bundle.putParcelable("SUPER", super.onSaveInstanceState());
         bundle.putDouble("MIN", this.mPercentSelectedMinValue);
@@ -305,7 +284,7 @@ public class CustomRangeSeekBar extends AbsSeekBar {
         return bundle;
     }
 
-    public void onRestoreInstanceState(Parcelable parcel) {
+    protected void onRestoreInstanceState(Parcelable parcel) {
         Bundle bundle = (Bundle)parcel;
         super.onRestoreInstanceState(bundle.getParcelable("SUPER"));
         this.mPercentSelectedMinValue = bundle.getDouble("MIN");
