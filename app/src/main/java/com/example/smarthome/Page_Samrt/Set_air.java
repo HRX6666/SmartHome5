@@ -23,16 +23,11 @@ public class Set_air extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_air);
-        set_rv=findViewById(R.id.set_rv);
-        recyclerView();
+
+
     }
 
-    private void recyclerView() {
-        set_rv.setLayoutManager(new LinearLayoutManager( this, LinearLayoutManager.HORIZONTAL, false));
-        List<AddModel> all = LitePal.findAll(AddModel.class);
-        addModelAdapter2= new AddModelAdapter2(all);
-        set_rv.setAdapter(addModelAdapter2);
-    }
+
 
 
 }

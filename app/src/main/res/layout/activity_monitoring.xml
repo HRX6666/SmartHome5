@@ -15,35 +15,67 @@
         app:title="门锁装置"
         app:titleTextColor="@color/lighthui">
     </androidx.appcompat.widget.Toolbar>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"/>
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查看历史门锁记录"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginLeft="240dp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lighthui2"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/monitoring"
-        android:orientation="vertical">
-        <Button
-            android:id="@+id/open_the_door"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:backgroundTint="#A4E8C0"
-            android:layout_marginTop="120dp"
-            android:text="开门" />
-        <Button
-            android:id="@+id/close_the_door"
-            android:layout_width="210dp"
-            android:layout_height="100dp"
-            android:backgroundTint="#A4E8C0"
-            android:layout_marginLeft="170dp"
-            android:text="锁门" />
-        <Button
-            android:id="@+id/alarm"
-            android:layout_width="210dp"
-            android:layout_height="100dp"
-            android:backgroundTint="#99E8B9"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="10dp"
-            android:text="报警" />
 
+        android:background="@drawable/tr4e"
+        android:orientation="vertical">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/open_the_door"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="80dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:backgroundTint="#EEF9C1"
+            android:elevation="8dp"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="5dp">
+            <TextView
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
+                android:text="开门"
+                android:layout_marginTop="@dimen/dp_25"
+                android:layout_marginLeft="@dimen/dp_25">
+
+            </TextView>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/close_the_door"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="80dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:backgroundTint="#EEF9C1"
+            android:elevation="8dp"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="5dp">
+            <TextView
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
+                android:text="锁门"
+                android:layout_marginTop="@dimen/dp_25"
+                android:layout_marginLeft="@dimen/dp_25"/>
+
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 
 

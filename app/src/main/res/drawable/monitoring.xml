@@ -6,8 +6,8 @@
         android:endColor="#E1FFCE"/>
 
     <corners
-        android:topRightRadius="140dp"
-        android:topLeftRadius="140dp" />
+        android:topRightRadius="120dp"
+        android:topLeftRadius="120dp" />
 
 
 </shape>

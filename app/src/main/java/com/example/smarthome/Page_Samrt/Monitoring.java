@@ -3,6 +3,7 @@ package com.example.smarthome.Page_Samrt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.biometric.BiometricPrompt;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
@@ -16,7 +17,7 @@ import com.example.smarthome.R;
 import java.util.concurrent.Executor;
 
 public class Monitoring extends AppCompatActivity {
-    Button open,close,alarm;
+     CardView open,close,alarm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,7 @@ public class Monitoring extends AppCompatActivity {
         setContentView(R.layout.activity_monitoring);
         open=findViewById(R.id.open_the_door);
         close=findViewById(R.id.close_the_door);
-        alarm=findViewById(R.id.alarm);
+
 
         open.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,17 +49,7 @@ public class Monitoring extends AppCompatActivity {
                 getPrompt().authenticate(promptInfo);
             }
         });
-        alarm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BiometricPrompt.PromptInfo promptInfo=new BiometricPrompt.PromptInfo.Builder()
-                        .setTitle("请核实")
-                        .setDescription("需要用户验证身份信息")
-                        .setNegativeButtonText("取消")
-                        .build();
-                getPrompt().authenticate(promptInfo);
-            }
-        });
+
     }
 
     private BiometricPrompt getPrompt(){

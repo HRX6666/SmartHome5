@@ -71,7 +71,7 @@ public class ViewPagerIndicator extends LinearLayout {
         this.setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_card));
         paint = new Paint();
         paint.setStyle(Paint.Style.FILL);
-        paint.setColor(getResources().getColor(R.color.darkhui));
+        paint.setColor(getResources().getColor(R.color.light));
         paint.setAntiAlias(true);
         paint.setTextSize(15);
     }

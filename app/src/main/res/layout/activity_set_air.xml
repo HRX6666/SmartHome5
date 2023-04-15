@@ -17,30 +17,18 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:text="房间选择"
-        android:textSize="15dp"
-        android:textColor="#004D7D"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/set_rv"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
         android:text="风速选择"
-        android:textSize="15dp"
-        android:layout_marginTop="10dp"
+        android:textSize="13dp"
+        android:layout_marginTop="20dp"
         android:textColor="#004D7D"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
-        android:backgroundTint="#EBF5CD"
+        android:backgroundTint="#FEFFFA"
         android:elevation="8dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp">
@@ -55,7 +43,7 @@
             android:layout_height="50dp"
             android:background="@drawable/wind_min"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginRight="20dp" />
             <TextView
                 android:layout_width="60dp"
@@ -130,17 +118,17 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:text="模式选择"
-        android:textSize="15dp"
-        android:layout_marginTop="10dp"
+        android:textSize="13dp"
+        android:layout_marginTop="20dp"
         android:textColor="#004D7D"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="30dp"
-        android:backgroundTint="#EBF5CD"
+        android:backgroundTint="#FEFFFA"
         android:elevation="8dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp">
@@ -155,7 +143,7 @@
                 android:layout_height="50dp"
                 android:background="@drawable/air_condition_wrom"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginRight="20dp" />
             <TextView
                 android:layout_width="60dp"
@@ -234,22 +222,21 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="40dp"/>
+
     <com.google.android.material.button.MaterialButton
-                android:id="@+id/create_home"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="确定"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:padding="12dp"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="#C6D2A5"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                app:cornerRadius="4dp"/>
-
-
+        android:id="@+id/create_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="30dp"
+        android:backgroundTint="#C6D2A5"
+        android:padding="12dp"
+        android:text="确定"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:cornerRadius="4dp" />
 
 
 </LinearLayout>

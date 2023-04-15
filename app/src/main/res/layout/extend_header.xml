@@ -26,6 +26,7 @@
         android:layout_marginTop="380dp"
         android:layout_marginLeft="290dp"
         android:background="@drawable/moon"
+        android:visibility="invisible"
       />
     <androidx.cardview.widget.CardView
         android:id="@+id/ruwang"
