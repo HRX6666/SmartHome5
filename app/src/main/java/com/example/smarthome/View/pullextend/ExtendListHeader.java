@@ -59,7 +59,7 @@ public class ExtendListHeader extends ExtendLayout {
     String device_nl;
     ImageView sun,moon;
     ExtendHeadAdapter extendHeadAdapter;
-    CardView ruwang;
+    CardView ruwang,add_dev;
     ObjectAnimator objectAnimator;
     List<String> mDatas = new ArrayList<>();
 
@@ -92,6 +92,7 @@ public class ExtendListHeader extends ExtendLayout {
         sun = view.findViewById(R.id.sun);
         moon=view.findViewById(R.id.moon);
         ruwang=view.findViewById(R.id.ruwang);
+        add_dev=view.findViewById(R.id.add_dev);
 
 
     }
